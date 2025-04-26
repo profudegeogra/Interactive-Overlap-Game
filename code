@@ -1,1 +1,247 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --backgroundColor-body: coral;
+      --backgroundColorDiv: lightyellow;
+    }
+
+#bifa{
+
+  display:none;
+}
+     .bifa {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30px;
+      color: green;
+      display: none; /* Ascunde bifa inițial */
+    }
+
+    .bifa.show {
+      display: block; /* Arată bifa când se suprapun */
+    }
+
+    body {
+      background-color: var(--backgroundColor-body);  
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .pair {
+      display: flex;
+      align-items: center;
+      margin: 40px 0;
+    }
+
+    .animal, .food {
+      width: 200px;
+      height: 200px;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      margin: 0 20px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+.animal {
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 20px;
+  animation-fill-mode: forwards;
+}
+.food {
+  animation: bounceFood 1s ease-in-out forwards; /* Aplica animația */
+}
+
+    .animal1 {
+  animation: moveAnimal1 2s ease-in-out forwards;
+}
+
+.animal2 {
+  animation: moveAnimal2 2s ease-in-out 0.5s forwards;
+}
+
+.animal3 {
+  animation: moveAnimal3 2s ease-in-out 1s forwards;
+}
+
+/* Dreapta */
+@keyframes moveAnimal1 {
+  0% {
+    transform: translate(0, 0); /* Startul animației */
+  }
+  10% {
+    transform: translate(50px, 150px); /* După 10%, se deplasează la 50px pe X */
+  }
+  30% {
+    transform: translate(150px, 250px); /* După 30%, ajunge la 150px pe X */
+  }
+  50% {
+    transform: translate(200px, 350px); /* La jumătatea animației, ajunge la 200px pe X */
+  }
+  100% {
+    transform: translate(300px, 0); /* La final ajunge la 300px pe X */
+  }
+}
+
+
+    @keyframes moveAnimal2 {
+  0% {
+    transform: translate(0, 0); /* Startul animației */
+  }
+  10% {
+    transform: translate(50px, 150px); /* După 10%, se deplasează la 50px pe X */
+  }
+  30% {
+    transform: translate(150px, 250px); /* După 30%, ajunge la 150px pe X */
+  }
+  50% {
+    transform: translate(200px, 350px); /* La jumătatea animației, ajunge la 200px pe X */
+  }
+  100% {
+    transform: translate(250px, 60px); /* La final ajunge la 300px pe X */
+  }
+}
+    
+      
+  
+
+/* Dreapta + Sus */
+@keyframes moveAnimal3 {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(200px, -50px);
+  }
+}
+
+    /* Adăugăm animația de bounce pentru mâncare */
+@keyframes bounceFood {
+  0% {
+    transform: translateY(0); /* La început nu se mișcă */
+  }
+  30% {
+    transform: translateY(-15px); /* Săritura în sus */
+  }
+  50% {
+    transform: translateY(0); /* Cădere la loc */
+  }
+  70% {
+    transform: translateY(-10px); /* A doua săritură mai mică */
+  }
+  100% {
+    transform: translateY(0); /* Mâncarea ajunge la locul final */
+  }
+}
+
+.img-alert {
+  border: 4px solid red;     /* Bordură roșie de 4px */
+  border-radius: 15px;       /* Colțuri rotunjite */
+}
+
+  </style>
+  <title>Animal Animation</title>
+</head>
+<body>
+
+  <div id='buttonStart'><button>Start overlap</button></div>
+
+  <div class="pair">
+    <div class="animal" data-animal="1">
+
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrOunpvF6cRJnnrnfpFksyRMhWcQyJfivzAQ&s" alt="Animal 1">
+    </div>
+    <div class="food">
+      <img src="https://www.shutterstock.com/image-photo/vast-african-savanna-buffalo-graze-600nw-2513674997.jpg" alt="Food 1">
+    </div>
+    <div class="bifa">✔</div> <!-- Bifa pentru primul animal -->
+        <div data="text">Leul mananca bivolul</div> <!-- Bifa pentru primul animal -->
+  </div>
+
+  <div class="pair">
+   <div class="animal" data-animal="2">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGbMK17CW4V3KBZl_Y1N4mT0i4JN-b0kJm9w&s" alt="Animal 2">
+    </div>
+    <div class="food">
+      <img src="https://cdn.viva.org.uk/wp-content/uploads/2020/05/fun-facts.jpg" alt="Food 2">
+    </div>
+     <div class="bifa">✔</div> <!-- Bifa pentru al doilea animal -->
+     <div data ="text">Lupul mananca oaia</div> <!-- Bifa pentru primul animal -->
+  </div>
+
+  <div class="pair">
+   <div class="animal" data-animal="1">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSycIRD4CFLqIG5gZS5LCfTsPTSKhaBIcn7KA&s" alt="Animal 3">
+    </div>
+    <div class="food">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXOHxC9Vk7DWpMi4VRWKPwb650LupVGEjXUw&s" alt="Food 3">
+    </div>
+    <div class="bifa">✔</div> <!-- Bifa pentru al treilea animal -->
+    <div data="text">Vulpea mananca gaina</div> <!-- Bifa pentru primul animal -->
+  </div>
+
+</body>
+
+  <script>
+
+
+ // Funcția de verificare a suprapunerii
+    function checkOverlap(animal, food, bifa,afisareText) {
+      const animalRect = animal.getBoundingClientRect();
+      const foodRect = food.getBoundingClientRect();
+
+      // Verificăm dacă există suprapunere
+      if (animalRect.top < foodRect.bottom &&
+          animalRect.bottom > foodRect.top &&
+          animalRect.left < foodRect.right &&
+          animalRect.right > foodRect.left) {
+        bifa.classList.add('show'); // Afișăm bifa
+
+        afisareText.style.display = "inline";
+    afisareText.style.zIndex = 999;
+    afisareText.style.fontWeight = "bold";
+    afisareText.style.color = "white";
+      } else {
+        bifa.classList.remove('show'); // Ascundem bifa
+         afisareText.style.display = "none"; // opțional, să dispară dacă nu se suprapune
+      }
+    }
+
+    // Verificăm dacă animalele se suprapun cu mâncarea
+    document.querySelector('#buttonStart').addEventListener('click', () => {
+      const pairs = document.querySelectorAll('.pair');
+
+      pairs.forEach((pair, index) => {
+        const animal = pair.querySelector('.animal');
+        const food = pair.querySelector('.food');
+        const bifa = pair.querySelector('.bifa');
+    const afisareText = pair.querySelector('[data="text"]');
+        // Adaugăm clasa de animație în funcție de index
+    animal.classList.add(`animal${index + 1}`);
+
+        food.classList.add(`img-alert${index + 1}`);
+        // Verificăm continuu suprapunerea
+        setInterval(() => checkOverlap(animal, food, bifa,afisareText), 100);
+      });
+    });
+    
+  </script>
+</html>
